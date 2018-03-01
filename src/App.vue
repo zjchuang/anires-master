@@ -211,7 +211,7 @@ html{
 * 邮箱：xnpeng@163.com
 
 
-[下载简历](/static/resume.pdf)
+[下载简历](http://www.sitexa.org/anires/static/resume.pdf)
 `
       }
     },
