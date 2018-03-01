@@ -196,6 +196,14 @@ html{
 * [技术博客](http://www.sitexa.org)
 * [南方时代](http://www.sitexa.net)
 * [神秘湘鄂西](http://www.sitexa.cn)
+
+联系方式
+====
+
+电话：18673107430
+微信：18673107430
+邮箱：xnpeng@163.com
+
 `
       }
     },
