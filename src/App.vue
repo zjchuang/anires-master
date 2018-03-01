@@ -210,6 +210,8 @@ html{
 * 微信：18673107430
 * 邮箱：xnpeng@163.com
 
+
+[下载简历](/static/resume.pdf)
 `
       }
     },
