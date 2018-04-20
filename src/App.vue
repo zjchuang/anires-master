@@ -114,6 +114,8 @@ html{
         fullMarkdown: `南方
 ====
 
+坐标：湖南长沙。
+
 资深软件工程师，资深产品经理，高级项目经理。现为自由职业。
 
 技能
@@ -136,7 +138,7 @@ html{
   - 博客系统
   - 公众号开发
   - 小程序开发
-  - API接口
+  - API接口开发
 
 前端开发
 ----
@@ -159,17 +161,17 @@ html{
 
 技术及语言
 ----
-  - Java: SpringMVC, SpringCloud, Hibernate, iBatis, spark, sql2o, HikariCP, freemarker, okHttp, retrofit, picasso, RxJava, Gson, Moshi
+  - Java: SpringMVC, SpringCloud, Hibernate, iBatis, spark, sql2o, HikariCP, freemarker, okHttp, retrofit, RxJava
   - Kotlin: ktor, exposed, anko
   - Node.js: express, angular, ionic, react, cordova, meteor, electron, axios
-  - Swift: Vapor, ReactiveSwift, ReactiveCocoa, SwiftJson
+  - Swift: Vapor, ReactiveSwift
   - Golang: hugo, beego, gorm, sqlx, matcha
   - Python: tushare, pandas, numpy, matplotlib
   - DotNet and PHP
   - DB: SQLServer, Oracle, MySQL/MariaDB, MongoDB, graphQL, redis, memcached
   - WebServer: apache, nginx, tomcat, netty, jetty
   - OS: Ubuntu, CentOS, MacOS, Windows
-  - Others: Docker, git, Xmind
+  - Others: Docker, git, Xmind，Axure
 
 工作经历
 ====
@@ -189,9 +191,9 @@ html{
 文章
 ====
 
-* [故土难离（我的父亲母亲）](https://www.meipian.cn/qacqfbz?user_id=6119180&uuid=d541c15eef694065bc9d1ac9a07925a2&idfa=F1F97D3A-B60D-4189-8CC6-D2254119F7E8&utm_medium=meipian_ios&utm_source=singlemessage&v=4.3.2&from=singlemessage&isappinstalled=1)
-* [油腻腻的中年（小诗）](https://www.meipian.cn/wjaz3zh?user_id=6119180&uuid=ca1cd053b717451da781786de44e66e7&idfa=F1F97D3A-B60D-4189-8CC6-D2254119F7E8&utm_medium=meipian_ios&utm_source=singlemessage&v=4.3.2&from=singlemessage&isappinstalled=1)
-* [生命（老四们的蝼蚁人生）](https://www.meipian.cn/vc4pr59?user_id=6119180&uuid=799c98f5a187405c94c86f7da7788869&idfa=F1F97D3A-B60D-4189-8CC6-D2254119F7E8&utm_medium=meipian_ios&utm_source=singlemessage&v=4.3.2&from=singlemessage&isappinstalled=1)
+* [故土难离（我的父亲母亲）](https://www.meipian.cn/qacqfbz?uuid=d541c15eef694065bc9d1ac9a07925a2)
+* [油腻腻的中年（小诗）](https://www.meipian.cn/wjaz3zh?uuid=ca1cd053b717451da781786de44e66e7)
+* [生命（老四们的蝼蚁人生）](https://www.meipian.cn/vc4pr59?uuid=799c98f5a187405c94c86f7da7788869)
 * [大健康商业模式](http://www.sitexa.org/technology/%E5%A4%A7%E5%81%A5%E5%BA%B7%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F.html)
 * [社区社交商业模型](http://www.sitexa.org/other/%E7%A4%BE%E5%8C%BA%E7%A4%BE%E4%BA%A4%E5%95%86%E4%B8%9A%E6%A8%A1%E5%9E%8B.html)
 
@@ -212,6 +214,15 @@ html{
 
 
 [下载简历](http://www.sitexa.org/anires/static/resume.pdf)
+
+补充说明
+====
+
+这两天我的简历突然传开了，一些老板跟我联系，很多朋友关心我，盛情邀请我去面试，我表示万分感谢！
+因为我定居在湖南长沙，首先想在长沙找工作，要是找不到就去外地找。
+
+朋友们的热情让我无地自容，我只是想找份工作而已，简历上写了很多技术，我虽然学过做过，也就是懂一点皮毛，
+不是什么大牛大神大佬。一当找到工作，我就把简历下线了。
 `
       }
     },

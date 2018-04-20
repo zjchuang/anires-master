@@ -2,7 +2,7 @@
 ## 使用方法
 
 ``` bash
-git clone https://github.com/anires.git
+git clone https://github.com/sitexa/anires.git
 cd anires
 npm install
 npm run dev
