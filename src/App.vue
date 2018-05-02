@@ -18,7 +18,7 @@
     },
     data() {
       return {
-        interval: 40,
+        interval: 10,
         currentStyle: '',
         enableHtml: false,
         fullStyle: [
@@ -74,12 +74,12 @@ html{
 /* 好了，我开始写简历了 */
 
 
-`,`
+`, `
 /* 这个简历好像差点什么
  * 对了，这是 Markdown 格式的，我需要变成对 HR 更友好的格式
  * 简单，用开源工具翻译成 HTML 就行了
  */
-`,`
+`, `
 /* 再对 HTML 加点样式 */
 .resumeEditor{
   padding: 2em;
@@ -220,7 +220,7 @@ html{
 [下载简历](http://www.sitexa.org/anires/static/resume.pdf)
 
 鸣谢
-====
+----
 
 * 五一节结束了，我借此页面跟大家说一声感谢。
 * 这段时间，我有些诚煌诚恐，无地自容。我的经历都是一些小公司的软件开发，做着做着就成了Team leader，做过架构、产品、管理，做了好几个行业，技术栈全而不深。
@@ -237,7 +237,8 @@ html{
 * 我回复了一些朋友的信息，还有很多朋友的信息我没能及时回复，在此，我表示深深的歉意！
 
 感谢名单（不完全）
-====
+----
+
 - 北京肿瘤康复会
 - 珠海紫鸳无人机
 - 腾讯大燕网
@@ -342,7 +343,9 @@ html{
           let interval = this.interval
           let showStyle = (async function () {
             let style = this.fullStyle[n]
-            if (!style) { return }
+            if (!style) {
+              return
+            }
             // 计算前 n 个 style 的字符总数
             let length = this.fullStyle.filter((_, index) => index <= n).map((item) => item.length).reduce((p, c) => p + c, 0)
             let prefixLength = length - style.length
@@ -398,7 +401,8 @@ html{
   html {
     min-height: 100vh;
   }
-  *{
+
+  * {
     box-sizing: border-box;
   }
 </style>
