@@ -8,13 +8,15 @@
 <script>
   import StyleEditor from './components/StyleEditor'
   import ResumeEditor from './components/ResumeEditor'
+  import ThankEditor from './components/ThankEditor'
   import './assets/reset.css'
 
   export default {
     name: 'app',
     components: {
       StyleEditor,
-      ResumeEditor
+      ResumeEditor,
+      ThankEditor
     },
     data() {
       return {
@@ -74,7 +76,7 @@ html{
 /* 好了，我开始写简历了 */
 
 
-`, `
+`,`
 /* 这个简历好像差点什么
  * 对了，这是 Markdown 格式的，我需要变成对 HR 更友好的格式
  * 简单，用开源工具翻译成 HTML 就行了
@@ -109,9 +111,44 @@ html{
   padding: .5em;
   background: #ddd;
 }
+`,`
+/*
+ * 特别鸣谢。
+ */
+`, `
+/* 再对 HTML 加点样式 */
+.thankEditor{
+  padding: 2em;
+}
+.thankEditor h2{
+  display: inline-block;
+  border-bottom: 1px solid;
+  margin: 1em 0 .5em;
+}
+.thankEditor ul,.thankEditor ol{
+  list-style: none;
+}
+.thankEditor ul> li::before{
+  content: '•';
+  margin-right: .5em;
+}
+.thankEditor ol {
+  counter-reset: section;
+}
+.thankEditor ol li::before {
+  counter-increment: section;
+  content: counters(section, ".") " ";
+  margin-right: .5em;
+}
+.thankEditor blockquote {
+  margin: 1em;
+  padding: .5em;
+  background: #ddd;
+}
 `],
         currentMarkdown: '',
-        fullMarkdown: `南方
+        fullMarkdown: [
+          `南方
 ====
 
 坐标：湖南长沙。
@@ -176,7 +213,7 @@ html{
   - Others: Docker, git, Xmind，Axure
 
 工作经历
-====
+----
 
 1. 湖南融耀健康管理有限公司
 2. 湖南三英特旅游智能技术有限公司
@@ -185,13 +222,13 @@ html{
 5. 厦门海环计算机软件有限公司
 
 教育经历
-====
+----
 
 1. 华东理工大学 环境工程学士
 2. 厦门大学 系统工程硕士
 
 文章
-====
+----
 
 * [故土难离（我的父亲母亲）](https://www.meipian.cn/qacqfbz?uuid=d541c15eef694065bc9d1ac9a07925a2)
 * [油腻腻的中年（小诗）](https://www.meipian.cn/wjaz3zh?uuid=ca1cd053b717451da781786de44e66e7)
@@ -200,7 +237,7 @@ html{
 * [社区社交商业模型](http://www.sitexa.org/other/%E7%A4%BE%E5%8C%BA%E7%A4%BE%E4%BA%A4%E5%95%86%E4%B8%9A%E6%A8%A1%E5%9E%8B.html)
 
 链接
-====
+----
 
 * [GitHub](https://github.com/sitexa)
 * [技术博客](http://www.sitexa.org)
@@ -208,7 +245,7 @@ html{
 * [神秘湘鄂西](http://www.sitexa.cn)
 
 联系方式
-====
+----
 
 * 电话：18673107430
 * 微信：18673107430
@@ -219,6 +256,7 @@ html{
 
 [下载简历](http://www.sitexa.org/anires/static/resume.pdf)
 
+`,`
 鸣谢
 ----
 
@@ -317,7 +355,7 @@ html{
 - 广州某区块链和人工智能团队
 - 云鸟科技
 
-`
+`]
       }
     },
     created() {
@@ -329,10 +367,12 @@ html{
         await this.progressivelyShowStyle(0)
         await this.progressivelyShowResume()
         await this.progressivelyShowStyle(1)
-        await this.showHtml()
+        await this.showResumeHtml()
         await this.progressivelyShowStyle(2)
+        await this.progressivelyShowStyle(3)
+        await this.progressivelyShowThanks()
       },
-      showHtml: function () {
+      showResumeHtml: function () {
         return new Promise((resolve, reject) => {
           this.enableHtml = true
           resolve()
@@ -368,11 +408,12 @@ html{
       },
       progressivelyShowResume() {
         return new Promise((resolve, reject) => {
-          let length = this.fullMarkdown.length
+          let resume = this.fullMarkdown[0]
+          let length = resume.length
           let interval = this.interval
           let showResume = () => {
             if (this.currentMarkdown.length < length) {
-              this.currentMarkdown = this.fullMarkdown.substring(0, this.currentMarkdown.length + 1)
+              this.currentMarkdown = resume.substring(0, this.currentMarkdown.length + 1)
               let lastChar = this.currentMarkdown[this.currentMarkdown.length - 1]
               let prevChar = this.currentMarkdown[this.currentMarkdown.length - 2]
               if (prevChar === '\n' && this.$refs.resumeEditor) {
@@ -384,6 +425,28 @@ html{
             }
           }
           showResume()
+        })
+      },
+      progressivelyShowThanks() {
+        return new Promise((resolve, reject) => {
+          this.enableHtml = true
+          let thanks = this.fullMarkdown[1]
+          let length = thanks.length
+          let interval = this.interval
+          let showThanks = () => {
+            if (this.currentMarkdown.length < length) {
+              this.currentMarkdown = thanks.substring(0, this.currentMarkdown.length + 1)
+              let lastChar = this.currentMarkdown[this.currentMarkdown.length - 1]
+              let prevChar = this.currentMarkdown[this.currentMarkdown.length - 2]
+              if (prevChar === '\n' && this.$refs.thankEditor) {
+                this.$nextTick(() => this.$refs.thankEditor.goBottom())
+              }
+              setTimeout(showThanks, interval)
+            } else {
+              resolve()
+            }
+          }
+          showThanks()
         })
       }
     }
