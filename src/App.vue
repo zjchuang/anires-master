@@ -1,56 +1,74 @@
 <template>
   <div id="app">
-    <StyleEditor ref="styleEditor" :code="currentStyle"></StyleEditor>
-    <ResumeEditor ref="resumeEditor" :markdown="currentMarkdown" :enableHtml="enableHtml"></ResumeEditor>
+    <div id="content">
+      <StyleEditor ref="styleEditor" :code="currentStyle"></StyleEditor>
+      <ResumeEditor ref="resumeEditor" :markdown="currentMarkdown" :enableHtml="enableHtml"></ResumeEditor>
+    </div>
+    <div id="foot">
+      <ThankEditor ref="thankEditor" :markdown="currentThankMarkdown" :enableHtml="enableHtml"></ThankEditor>
+    </div>
   </div>
 </template>
 
 <script>
   import StyleEditor from './components/StyleEditor'
   import ResumeEditor from './components/ResumeEditor'
+  import ThankEditor from './components/ThankEditor'
   import './assets/reset.css'
 
   export default {
     name: 'app',
     components: {
       StyleEditor,
-      ResumeEditor
+      ResumeEditor,
+      ThankEditor
     },
     data() {
       return {
-        interval: 10,
+        interval: 5,
         currentStyle: '',
         enableHtml: false,
         fullStyle: [
           `/*
 * Inspired by http://strml.net/
+* Source code at https://github.com/sitexa/anires
 * 大家好，我是南方。
 * 我来写一份简历！
 */
 
-/* 首先给所有元素加上过渡效果 */
+/* 给所有元素加上过渡效果 */
 * {
   transition: all .1s;
 }
-/* 白色背景太单调了，我们来点背景 */
+/* 设置背景颜色 */
 html {
-  color: rgb(222,222,222); background: rgb(0,43,54);
+  color: rgb(222,222,222); background: rgb(0,64,64);
 }
-/* 文字离边框太近了 */
+#content{
+  height:70vh;
+  margin:0;
+}
+#foot{
+  height:29vh;
+  margin:0;
+}
+
+/* 设置边框 */
 .styleEditor {
   padding: .5em;
   border: 1px solid;
   margin: .5em;
   overflow: auto;
-  width: 45vw; height: 90vh;
+  width: 50vw; height: 70vh;
+  background: rgb(20,20,20);
 }
 /* 代码高亮 */
-.token.selector{ color: rgb(133,153,0); }
-.token.property{ color: rgb(187,137,0); }
+.token.selector{ color: rgb(130,150,0); }
+.token.property{ color: rgb(190,140,0); }
 .token.punctuation{ color: yellow; }
-.token.function{ color: rgb(42,161,152); }
+.token.function{ color: rgb(40,160,150); }
 
-/* 加点 3D 效果呗 */
+/* 加3D效果 */
 html{
   perspective: 1000px;
 }
@@ -62,25 +80,24 @@ html{
           transform: rotateY(10deg) translateZ(-100px) ;
 }
 
-/* 接下来我给自己准备一个编辑器 */
+/* 准备一个编辑器 */
 .resumeEditor{
-  position: fixed; right: 0; top: 0;
+  position: fixed; right: 0; top: 30;
   padding: .5em;  margin: .5em;
-  width: 48vw; height: 90vh;
+  width: 50vw; height: 70vh;
   border: 1px solid;
-  background: white; color: #222;
+  background: rgb(200,200,200); color: #222;
   overflow: auto;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transform: rotateY(-10deg) translateZ(-100px) ;
+          transform: rotateY(-10deg) translateZ(-100px) ;
 }
-/* 好了，我开始写简历了 */
-
-
+/* 开始写简历 */
 `, `
-/* 这个简历好像差点什么
- * 对了，这是 Markdown 格式的，我需要变成对 HR 更友好的格式
- * 简单，用开源工具翻译成 HTML 就行了
- */
-`, `
-/* 再对 HTML 加点样式 */
+/*将Markdown格式翻译成HTML
+ *再对HTML加点样式
+*/
 .resumeEditor{
   padding: 2em;
 }
@@ -109,8 +126,38 @@ html{
   padding: .5em;
   background: #ddd;
 }
+`, `/* 写封感谢信。
+ * 感谢大家对我的关注。
+ */
+.thankEditor{
+  position: fixed; left: 0; bottom: 0;
+  padding: .5em;  margin: .5em; margin-top:.2em;
+  font-size: .8em;
+  width: 99vw; height: 28vh;
+  border: 1px solid #ccc;
+  background: rgb(10,10,10);
+  color: rgb(0,200,0);
+  overflow: auto;
+}
+
+.thankEditor ul,.thankEditor ol{
+  list-style: none;
+}
+.thankEditor ul> li::before{
+  content: '☞'; color: red;
+  margin-right: .5em;
+}
+.thankEditor ol {
+  counter-reset: section;
+}
+.thankEditor ol li::before {
+  counter-increment: section;
+  content: counters(section, "☞") " ";
+  margin-right: .5em;
+}
 `],
         currentMarkdown: '',
+        currentThankMarkdown: '',
         fullMarkdown: `南方
 ====
 
@@ -205,15 +252,14 @@ html{
 * [南方时代](http://www.sitexa.net)
 * [神秘湘鄂西](http://www.sitexa.cn)
 
-联系方式
+勾引方式
 ----
 
 * 微信：xnpeng
 
-鸣谢
+`, thanksMarkdown: `鸣谢
 ----
 
-* 五一节结束了，我借此页面跟大家说一声感谢。
 * 这段时间，我有些诚煌诚恐，无地自容。我的经历都是一些小公司的软件开发，做着做着就成了Team leader，做过架构、产品、管理，做了好几个行业，技术栈全而不深。
 * 到底适合做什么岗位，我也不好定位，其实也没得选择。除了美工不会做，其他的都会点。近几年，主要在JVM平台上做开发，特别是自(shi)由(ye)之后，我主要学习了Kotlin和NodeJS相关技术，同时也玩玩Python和GoLang。
 * 自认为学习能力强，追求完美，不管是商业模式，还是产品设计，或者技术架构，以及代码开发，都追求优美。但都被残酷的现实挤压得很骨感。
@@ -226,8 +272,7 @@ html{
 * 有很多企业向我发出了面试邀请，有很多创业团队向我伸出了橄榄枝，一些朋友给我提出非常好的建议，还有很多同行同学们希望跟我进行技术交流，甚至有些企业问我能否承接外包业务。
 * 在此，我要对所有的所有，说一声谢谢，谢谢你们对我的关心和支持！有你们的存在，让我对明天充满希望，对未来充满信心！不管有没有找到合适的工作，我认识了一群朋友，我非常满意！
 * 我回复了一些朋友的信息，还有很多朋友的信息我没能及时回复，在此，我表示深深的歉意！
-
-`
+  `
       }
     },
     created() {
@@ -236,13 +281,14 @@ html{
 
     methods: {
       makeResume: async function () {
-        await this.progressivelyShowStyle(0)
-        await this.progressivelyShowResume()
-        await this.progressivelyShowStyle(1)
-        await this.showHtml()
-        await this.progressivelyShowStyle(2)
+        await this.progressivelyShowStyle(0);
+        await this.progressivelyShowResume();
+        await this.progressivelyShowStyle(1);
+        await this.showHtml();
+        await this.progressivelyShowStyle(2);
+        await this.progressivelyShowThanks()
       },
-      showHtml: function () {
+      showHtml() {
         return new Promise((resolve, reject) => {
           this.enableHtml = true
           resolve()
@@ -294,6 +340,26 @@ html{
             }
           }
           showResume()
+        })
+      },
+      progressivelyShowThanks() {
+        return new Promise((resolve, reject) => {
+          let length = this.thanksMarkdown.length
+          let interval = this.interval
+          let showThanks = () => {
+            if (this.currentThankMarkdown.length < length) {
+              this.currentThankMarkdown = this.thanksMarkdown.substring(0, this.currentThankMarkdown.length + 1)
+              let lastChar = this.currentThankMarkdown[this.currentThankMarkdown.length - 1]
+              let prevChar = this.currentThankMarkdown[this.currentThankMarkdown.length - 2]
+              if (prevChar === '\n' && this.$refs.thankEditor) {
+                this.$nextTick(() => this.$refs.thankEditor.goBottom())
+              }
+              setTimeout(showThanks, interval)
+            } else {
+              resolve()
+            }
+          }
+          showThanks()
         })
       }
     }

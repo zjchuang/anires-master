@@ -18,26 +18,27 @@
     },
     data() {
       return {
-        interval: 10,
+        interval: 5,
         currentStyle: '',
         enableHtml: false,
         fullStyle: [
           `/*
 * Inspired by http://strml.net/
+* Source code at https://github.com/sitexa/anires
 * 大家好，我是南方。
 * 我来写一份简历！
 */
 
-/* 首先给所有元素加上过渡效果 */
+/* 给所有元素加上过渡效果 */
 * {
   transition: all .2s;
 }
-/* 白色背景太单调了，我们来点背景 */
+/* 设置背景颜色 */
 html {
   color: rgb(222,222,222);
   background: rgb(0,43,54);
 }
-/* 文字离边框太近了 */
+/* 设置边框 */
 .styleEditor {
   padding: .5em;
   border: 1px solid;
@@ -64,7 +65,7 @@ html {
   color: rgb(42,161,152);
 }
 
-/* 加点 3D 效果呗 */
+/* 加3D效果 */
 html{
   perspective: 1000px;
 }
@@ -73,7 +74,7 @@ html{
   transform: rotateX(-10deg) translateZ(-50px) ;
 }
 
-/* 接下来我给自己准备一个编辑器 */
+/* 准备一个编辑器 */
 .resumeEditor{
   position: fixed;
   top: 50%; left: 0;
@@ -83,19 +84,15 @@ html{
   background: white; color: #222;
   overflow: auto;
 }
-/* 好了，我开始写简历了 */
+/* 开始写简历 */
 
 
 `,
           `
-/* 这个简历好像差点什么
- * 对了，这是 Markdown 格式的，我需要变成对 HR 更友好的格式
- * 简单，用开源工具翻译成 HTML 就行了
- */
-`
-          ,
-          `
-/* 再对 HTML 加点样式 */
+/*将Markdown格式翻译成HTML
+ *再对HTML加点样式
+*/
+`, `
 .resumeEditor{
   padding: 2em;
 }
@@ -227,7 +224,6 @@ html{
 鸣谢
 ----
 
-* 五一节结束了，我借此页面跟大家说一声感谢。
 * 这段时间，我有些诚煌诚恐，无地自容。我的经历都是一些小公司的软件开发，做着做着就成了Team leader，做过架构、产品、管理，做了好几个行业，技术栈全而不深。
 * 到底适合做什么岗位，我也不好定位，其实也没得选择。除了美工不会做，其他的都会点。近几年，主要在JVM平台上做开发，特别是自(shi)由(ye)之后，我主要学习了Kotlin和NodeJS相关技术，同时也玩玩Python和GoLang。
 * 自认为学习能力强，追求完美，不管是商业模式，还是产品设计，或者技术架构，以及代码开发，都追求优美。但都被残酷的现实挤压得很骨感。

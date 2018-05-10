@@ -39,10 +39,10 @@
 
   @keyframes flip {
     from {
-      opacity: 0.5;
+      opacity: 0;
     }
     to {
-      opacity: 0.5;
+      opacity: 1;
     }
   }
 </style>
