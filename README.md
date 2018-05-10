@@ -3,7 +3,7 @@
 
 1. 安装Node.js环境：https://nodejs.org/
 
-2. https://git-scm.com/
+2. 安装git: https://git-scm.com/
 
 3. 执行以下命令：
 
