@@ -174,7 +174,7 @@ html{
   - Others: Docker, git, Xmind，Axure
 
 工作经历
-====
+----
 
 1. 湖南融耀健康管理有限公司
 2. 湖南三英特旅游智能技术有限公司
@@ -183,13 +183,13 @@ html{
 5. 厦门海环计算机软件有限公司
 
 教育经历
-====
+----
 
 1. 华东理工大学 环境工程学士
 2. 厦门大学 系统工程硕士
 
 文章
-====
+----
 
 * [故土难离（我的父亲母亲）](https://www.meipian.cn/qacqfbz?uuid=d541c15eef694065bc9d1ac9a07925a2)
 * [油腻腻的中年（小诗）](https://www.meipian.cn/wjaz3zh?uuid=ca1cd053b717451da781786de44e66e7)
@@ -198,7 +198,7 @@ html{
 * [社区社交商业模型](http://www.sitexa.org/other/%E7%A4%BE%E5%8C%BA%E7%A4%BE%E4%BA%A4%E5%95%86%E4%B8%9A%E6%A8%A1%E5%9E%8B.html)
 
 链接
-====
+----
 
 * [GitHub](https://github.com/sitexa)
 * [技术博客](http://www.sitexa.org)
@@ -206,7 +206,7 @@ html{
 * [神秘湘鄂西](http://www.sitexa.cn)
 
 联系方式
-====
+----
 
 * 微信：xnpeng
 
