@@ -251,6 +251,7 @@ html{
 * [技术博客](http://www.sitexa.org)
 * [南方时代](http://www.sitexa.net)
 * [神秘湘鄂西](http://www.sitexa.cn)
+* [我的简历故事(程序人生公众号文章)](https://mp.weixin.qq.com/s/5rsB956EPVm0FoFOe6xYTg)
 
 勾引方式
 ----
