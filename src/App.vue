@@ -31,7 +31,7 @@
         fullStyle: [
           `/*
 * Inspired by http://strml.net/
-* Source code at https://github.com/sitexa/anires
+* 源码地址 https://github.com/sitexa/anires
 * 大家好，我是南方。
 * 我来写一份简历！
 */
@@ -82,7 +82,7 @@ html{
 
 /* 准备一个编辑器 */
 .resumeEditor{
-  position: fixed; right: 0; top: 30;
+  position: fixed; right: 0; top: 0;
   padding: .5em;  margin: .5em;
   width: 50vw; height: 70vh;
   border: 1px solid;
@@ -129,15 +129,29 @@ html{
 `, `/* 写封感谢信。
  * 感谢大家对我的关注。
  */
+.styleEditor{
+    width:50vw;height:70vh;
+}
+
+.resumeEditor{
+   width:50vw;height:70vh;
+}
+
 .thankEditor{
-  position: fixed; left: 0; bottom: 0;
-  padding: .5em;  margin: .5em; margin-top:.2em;
-  font-size: .8em;
-  width: 99vw; height: 28vh;
-  border: 1px solid #ccc;
-  background: rgb(10,10,10);
-  color: rgb(0,200,0);
+  position: relative; left: 0; top: 0;
+  background: #E9D9BB;
+  color: #001C42;
   overflow: auto;
+}
+
+.thankEditor {
+  width: 99vw; height: 45vh;
+  border: 1px solid #ccc;
+  font-size: .9em;
+}
+`,`
+.thankEditor{
+  padding: .5em;  margin: .5em; margin-top:1em;
 }
 
 .thankEditor ul,.thankEditor ol{
@@ -155,6 +169,15 @@ html{
   content: counters(section, "☞") " ";
   margin-right: .5em;
 }
+
+.thankEditor{
+  width: 99vw; height: 45vh;
+  -webkit-transition: none;
+  transition: none;
+  -webkit-transform: rotateX(-10deg) translateZ(-200px);
+          transform: rotateX(-10deg) translateZ(-200px);
+}
+
 `],
         currentMarkdown: '',
         currentThankMarkdown: '',
@@ -258,21 +281,17 @@ html{
 
 * 微信：xnpeng
 
-`, thanksMarkdown: `鸣谢
+`, thanksMarkdown: `
+鸣谢
 ----
 
-* 这段时间，我有些诚煌诚恐，无地自容。我的经历都是一些小公司的软件开发，做着做着就成了Team leader，做过架构、产品、管理，做了好几个行业，技术栈全而不深。
-* 到底适合做什么岗位，我也不好定位，其实也没得选择。除了美工不会做，其他的都会点。近几年，主要在JVM平台上做开发，特别是自(shi)由(ye)之后，我主要学习了Kotlin和NodeJS相关技术，同时也玩玩Python和GoLang。
-* 自认为学习能力强，追求完美，不管是商业模式，还是产品设计，或者技术架构，以及代码开发，都追求优美。但都被残酷的现实挤压得很骨感。
-* 一直以来，我对社交和电商很感兴趣，伴随着QQ和微信的成长、体验着阿里和京东的发展，见证了美团和大众点评的成功，思考过Facebook、twitter、YouTube、Snapchat、Whatsapp、Medium为什么在国外能够斗争发展，对一些新模式新技术比如共享单车、区块链有些关注，因为自由嘛，不受约束地接触各种技术（玩具）。
-* 在社交领域，腾讯独霸天下20年，在电商领域，毫无疑问，是阿里的天下，虽有京东、苏宁等后起之秀，但都没有革命性的模式或产品。美团在团购领域的成功，既迎合了中国消费者的心理，也强化了这种心理。这些公司和老板都是我无比崇拜的IT英雄！
-* 社交是一种形式，电商是变现模式，将二者结合起来会是一个什么样子呢？很多探索者已经在理论上和实践上做过很多尝试，有人号称社交电商，我不知对不对。
-* 我的思考是这样的，陌生社交和熟人社交之间有一个巨大的中间地带，即半生不熟的社区社交（园区社交），目前QQ群和微信群在承担这个工作，实际上不能满足现实需求。
-* 阿里电商（单中心）和微商（无中心）电商之间存在着一个巨大的中间地带，即社区电商（多中心），虽然有很多个创业团队做过多年的尝试，比如小区无忧，社区001，国安社区等等，都投入了大量资金，但我看不到什么革命性的模式。
-* 我的想法是用社交带来流量，通过电商变现。我是不是有点异想天开？
-* 有很多企业向我发出了面试邀请，有很多创业团队向我伸出了橄榄枝，一些朋友给我提出非常好的建议，还有很多同行同学们希望跟我进行技术交流，甚至有些企业问我能否承接外包业务。
-* 在此，我要对所有的所有，说一声谢谢，谢谢你们对我的关心和支持！有你们的存在，让我对明天充满希望，对未来充满信心！不管有没有找到合适的工作，我认识了一群朋友，我非常满意！
-* 我回复了一些朋友的信息，还有很多朋友的信息我没能及时回复，在此，我表示深深的歉意！
+* 这段时间，我有些诚煌诚恐。我的简历被很多人关注(49842），我码的那几篇文章也有很多人点击(20095），微信好友增加了2000多人。"程序人生"公众号文章（我的简历故事）阅读量超过十万+。
+* 有很多企业向我发出了面试邀请，有很多创业团队向我伸出了橄榄枝，一些朋友给我提出非常好的建议，还有很多同学希望跟我进行技术交流，甚至有些企业问我能否承接外包业务。
+* 于是，我受命下山，到了深圳、珠海、北京、天津等地，拜访了一些老板，结识了一些新朋友，见了一些同学和老同事，感触很多，收获很大。IT行业正在发生深刻的变化，新技术、新模式、新思维、新业态，层出不穷，各种探索，各种炒作，让人眼花缭乱。
+* 我对自己也有了一个新的认识。我逐渐发现，我不是去找一份工作，而是在寻找一些机会，一些志同道合的伙伴，一份激动人心的事业。很荣幸，已经有几个朋友跟我达成了意向，准备组建团队。
+* 到底做什么项目呢？我只能简单地说，社交+电商+区块链。肯定有人要说，这个题目太大了，是蹭热度。我不这样想。我以前对社交的思考中，一个重要的因素就是信任关系，而对电商的思考中，去中心化是一个核心考量。而区块链技术不正是解决信任机制和去中心化的利器么？
+* 在此，我欢迎有兴趣的朋友加入我们，尽快推进项目的实施。（微信：xnpeng）
+
   `
       }
     },
@@ -287,7 +306,8 @@ html{
         await this.progressivelyShowStyle(1);
         await this.showHtml();
         await this.progressivelyShowStyle(2);
-        await this.progressivelyShowThanks()
+        await this.progressivelyShowThanks();
+        await this.progressivelyShowStyle(3)
       },
       showHtml() {
         return new Promise((resolve, reject) => {
